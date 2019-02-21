@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <ItemGroup>
+    <BuildMacro Include="TensorflowDir">
+      <Value>$(TensorflowDir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+  <PropertyGroup Label="UserMacros">
+    <TensorflowDir>{tensorflow_dir}</TensorflowDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LocalDebuggerEnvironment>$(TensorflowDir)\$(Platform)\$(PlatformToolset)\bin;$(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
+    <IncludePath>$(TensorflowDir)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(TensorflowDir)\$(Platform)\$(PlatformToolset)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>USE_TENSORFLOW;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>{tensorflow_dpendencies}%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>
