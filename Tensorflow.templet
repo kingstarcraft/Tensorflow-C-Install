@@ -8,6 +8,7 @@
   </ItemGroup>
   <PropertyGroup Label="UserMacros">
     <TensorflowDir>{tensorflow_dir}</TensorflowDir>
+    <Protoc>$(TensorflowDir)\$(Platform)\$(PlatformToolset)\bin\Protoc.exe</Protoc>
   </PropertyGroup>
   <PropertyGroup>
     <LocalDebuggerEnvironment>$(TensorflowDir)\$(Platform)\$(PlatformToolset)\bin;$(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
